@@ -7,13 +7,24 @@ require 'open-uri'
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Ingredient.destroy_all
+# Ingredient.destroy_all
+Cocktail.destroy_all
 
-url = 'http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+# url = 'http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+# drinks_serialized = open(url).read
+# json = JSON.parse(drinks_serialized)
+# drink = json["drinks"]
+
+# drink.each do |ingredient|
+#   Ingredient.create!(name: ingredient["strIngredient1"])
+# end
+
+url = 'http://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail'
 drinks_serialized = open(url).read
 json = JSON.parse(drinks_serialized)
 drink = json["drinks"]
 
-drink.each do |ingredient|
-  Ingredient.create!(name: ingredient["strIngredient1"])
+drink.each do |cocktail|
+  Cocktail.create!(name: cocktail["strDrink"])
 end
+
