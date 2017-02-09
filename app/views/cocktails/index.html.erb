@@ -1,15 +1,17 @@
-<h1>Cocktails</h1>
+<h1 class="text-center">Cocktails</h1>
 
-<% @cocktails.each do |cocktail| %>
+<div class="cocktails">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-4">
-        <%= link_to cocktail_path(cocktail), class: "unstyled-link" do %>
-        <div class="card">
-          <h3 class="card-category"><%= cocktail.name %></h3>
+      <% @cocktails.each do |cocktail| %>
+        <div class="col-xs-12 col-sm-4">
+          <%= link_to cocktail_path(cocktail), class: "unstyled-link" do %>
+          <div class="card">
+            <h3 class="card-category"><%= cocktail.name %></h3>
+          </div>
+          <% end %>
         </div>
-        <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
-<% end %>
+</div>
