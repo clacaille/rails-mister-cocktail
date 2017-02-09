@@ -2,6 +2,10 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+body {
+  background-color: rgba(253,156,43,0.2);
+}
+
 .cocktails {
   display: flex;
   justify-content: space-between;
