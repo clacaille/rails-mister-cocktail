@@ -10,14 +10,14 @@ require 'open-uri'
 # Ingredient.destroy_all
 Cocktail.destroy_all
 
-# url = 'http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
-# drinks_serialized = open(url).read
-# json = JSON.parse(drinks_serialized)
-# drink = json["drinks"]
+url = 'http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+drinks_serialized = open(url).read
+json = JSON.parse(drinks_serialized)
+drink = json["drinks"]
 
-# drink.each do |ingredient|
-#   Ingredient.create!(name: ingredient["strIngredient1"])
-# end
+drink.each do |ingredient|
+  Ingredient.create!(name: ingredient["strIngredient1"])
+end
 
 url = 'http://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail'
 drinks_serialized = open(url).read
