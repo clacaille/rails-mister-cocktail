@@ -1,4 +1,5 @@
 <h1 class="text-center"><%= @cocktail.name %></h1>
+<%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
 
 <h2 class="text-center">Ingredients:</h2>
 <% @cocktail.doses.each do |dose| %>
@@ -6,3 +7,8 @@
   <%= dose.ingredient.name %>
 <% end %>
 
+<%= simple_form_for [ @cocktail, @dose ] do |f| %>
+  <%= f.input :description, input_html: { placeholder: "5cl" }  %>
+  <%= f.association :ingredient, prompt: "Select an ingredient" %>
+  <%= f.button :submit %>
+<% end %>

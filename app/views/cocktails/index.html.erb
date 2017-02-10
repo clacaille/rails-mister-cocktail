@@ -11,7 +11,7 @@
       <% @cocktails.each do |cocktail| %>
         <div class="col-xs-12 col-sm-4">
           <%= link_to cocktail_path(cocktail), class: "unstyled-link" do %>
-          <div class="card">
+          <div class="card" style="background-image: url('<%= cocktail.photo %>');">
             <h3 class="card-category"><%= cocktail.name %></h3>
           </div>
           <% end %>
