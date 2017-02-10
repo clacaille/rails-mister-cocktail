@@ -24,8 +24,8 @@ drinks_serialized = open(url).read
 json = JSON.parse(drinks_serialized)
 drink = json["drinks"]
 
-drink.each do |cocktail|
-  Cocktail.create!(name: cocktail["strDrink"], photo: cocktail["strDrinkThumb"])
+drink.first(6).each do |cocktail|
+  c = Cocktail.create!(name: cocktail["strDrink"])
 end
 
 

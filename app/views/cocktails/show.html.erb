@@ -1,14 +1,22 @@
-<h1 class="text-center"><%= @cocktail.name %></h1>
-<%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
+<h1 class="cocktail-title text-center"><%= @cocktail.name %></h1>
+<p class="text-center"><%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill, :class => "cocktail-image" %></p>
 
-<h2 class="text-center">Ingredients:</h2>
-<% @cocktail.doses.each do |dose| %>
-  <%= dose.description %>
-  <%= dose.ingredient.name %>
-<% end %>
+<div class="ingredients">
+  <div>
+    <h2 class="list-ingredients text-center">Ingredients:</h2>
+    <% @cocktail.doses.each do |dose| %>
+      <%= dose.description %>
+      <%= dose.ingredient.name %>
+    <% end %>
+  </div>
 
-<%= simple_form_for [ @cocktail, @dose ] do |f| %>
-  <%= f.input :description, input_html: { placeholder: "5cl" }  %>
-  <%= f.association :ingredient, prompt: "Select an ingredient" %>
-  <%= f.button :submit %>
-<% end %>
+<div id="button-ingredient"><button class="btn btn-warning" type="button">Add an ingredient</div>
+
+  <div class="add-ingredient hidden">
+    <%= simple_form_for [ @cocktail, @dose ] do |f| %>
+      <%= f.input :description, input_html: { placeholder: "5cl" }  %>
+      <%= f.association :ingredient, prompt: "Select an ingredient" %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>
